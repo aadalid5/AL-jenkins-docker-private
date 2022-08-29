@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY .npmrc .npmrc
-RUN npm ci --loglevel verbose
+RUN npm ci
 RUN rm -f .npmrc
 
 COPY . .
