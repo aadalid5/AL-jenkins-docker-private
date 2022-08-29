@@ -12,30 +12,30 @@ pipeline {
     }
 
     stages {
-        // stage("Install Dependencies") {
-        //     steps {
-        //         sh "node -v"
-        //         sh "npm ci"
+        stage("Install Dependencies") {
+            steps {
+                sh "node -v"
+                sh "npm ci"
+            }
+        }
+
+        // stage('Initialize'){
+        //     steps{
+        //         script{
+        //             def dockerHome = tool 'mydocker'
+        //             env.PATH = "${dockerHome}/bin:${env.PATH}"
+        //         }
         //     }
         // }
 
-        stage('Initialize'){
-            steps{
-                script{
-                    def dockerHome = tool 'mydocker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-            }
-        }
-
-        stage('deploy') {
-            steps {
-                script{
-                    echo "hello jenkins"
-                    buildDocker() 
-                }
-            }
-        }
+        // stage('deploy') {
+        //     steps {
+        //         script{
+        //             echo "hello jenkins"
+        //             buildDocker() 
+        //         }
+        //     }
+        // }
     }
 }
 
