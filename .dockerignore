@@ -9,3 +9,9 @@ node_modules
 npm-debug.log
 Dockerfile
 Dockerrun.*
+*.test.*
+pa11y/
+lighthouse/
+Checkmarx/
+docs/
+test-helpers/
