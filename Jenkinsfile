@@ -12,12 +12,12 @@ pipeline {
     }
 
     stages {
-        // stage("Install Dependencies") {
-        //     steps {
-        //         sh "node -v"
-        //         sh "npm ci"
-        //     }
-        // }
+        stage("Install Dependencies") {
+            steps {
+                sh "node -v"
+                sh "npm ci"
+            }
+        }
 
         stage('Initialize'){
             steps{
