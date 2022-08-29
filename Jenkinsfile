@@ -23,8 +23,13 @@ pipeline {
             steps {
                 script{
                     echo "hello jenkins"
+                    buildDocker() 
                 }
             }
         }
     }
+}
+
+def buildDocker() {
+    sh "sudo docker build -t local-test-next --build-arg ENV=QA ."
 }

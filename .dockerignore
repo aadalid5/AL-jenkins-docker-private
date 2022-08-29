@@ -1,1 +1,11 @@
-/node_modules
+.coverage/
+.git/
+.gitignore
+.dockerignore
+.husky/
+.next/
+__mocks__/
+node_modules
+npm-debug.log
+Dockerfile
+Dockerrun.*
