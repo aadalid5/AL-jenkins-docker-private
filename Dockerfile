@@ -12,8 +12,9 @@ RUN yum install -y nodejs
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-
-RUN npm ci --loglevel verbose
+COPY .npmrc .npmrc
+RUN npm --loglevel verbose
+RUN rm -f .npmrc
 
 COPY . .
 
