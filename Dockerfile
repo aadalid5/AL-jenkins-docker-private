@@ -14,12 +14,12 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY .npmrc .npmrc
 RUN npm ci
-RUN rm -f .npmrc
+
 
 COPY . .
 
 ARG ENV
 RUN if [ "$ENV" = "QA" ] ; then npm run build:test ; else npm run build ; fi
-
+RUN rm -f .npmrc
 EXPOSE 3000
 CMD [ "npm", "start" ]
