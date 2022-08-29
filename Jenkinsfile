@@ -12,13 +12,18 @@ pipeline {
     }
 
     stages {
-        stage("Install Dependencies") {
-            steps {
-                sh "node -v"
-                sh "npm ci"
-            }
-        }
+        // stage("Install Dependencies") {
+        //     steps {
+        //         sh "node -v"
+        //         sh "npm ci"
+        //     }
+        // }
 
+        stage('Initialize'){
+            def dockerHome = tool 'docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+        
         stage('deploy') {
             steps {
                 script{
