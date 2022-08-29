@@ -33,5 +33,5 @@ pipeline {
 }
 
 def buildDocker() {
-    sh "docker build -t local-test-next --build-arg ENV=QA ."
+    sh "sudo docker build -t local-test-next --build-arg ENV=QA ."
 }
