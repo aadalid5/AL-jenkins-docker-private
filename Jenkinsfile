@@ -8,9 +8,17 @@ pipeline {
     tools { nodejs "node" }
     
     environment {
+        FOO="FOO"
     }
 
     stages {
+        stage("Install Dependencies") {
+            steps {
+                sh "node -v"
+                sh "npm ci"
+            }
+        }
+
         stage('deploy') {
             steps {
                 script{
