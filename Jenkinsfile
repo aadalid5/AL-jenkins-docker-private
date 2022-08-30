@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     def token = "YXJpZWwuYWxlam86ZkpMNmVWZjRxZHR1Ul9BNQ=="
-                    sh "echo '//ae-qa-nexus-app01:8081/content/groups/npm-all/:_auth=${token}' >> .npmrc"
+                    sh "echo '\n//ae-qa-nexus-app01:8081/content/groups/npm-all/:_auth=${token}' >> .npmrc"
                     sh "cat .npmrc"
                 }
             }
