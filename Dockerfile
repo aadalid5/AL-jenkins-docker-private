@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY .npmrc .npmrc
-RUN npm ci
+RUN npm ci --registry http://ae-qa-nexus-app01:8081/content/groups/npm-all/
 
 
 COPY . .
