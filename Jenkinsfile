@@ -5,7 +5,7 @@
 pipeline {
     agent any
 
-    tools { nodejs "node" }
+    tools { nodejs "mynode" }
 
     environment {
         FOO="FOO"
