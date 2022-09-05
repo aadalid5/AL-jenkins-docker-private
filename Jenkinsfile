@@ -25,7 +25,7 @@ pipeline {
         stage("Install Dependencies") {
             steps {
                 script {
-                    def node_home = tool mynode
+                    def node_home = tool "mynode"
                     env.PATH="${node_home}/bin:${env.PATH}"
                 }
                 sh "node -v"
