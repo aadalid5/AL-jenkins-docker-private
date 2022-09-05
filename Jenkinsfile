@@ -15,6 +15,9 @@ pipeline {
         stage("test"){
             steps {
                 echo "test"
+                script {
+                    sh "npm -v"
+                }
             }
         }
     }
