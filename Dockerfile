@@ -13,13 +13,13 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY .npmrc .npmrc
-RUN npm ci --registry http://ae-qa-nexus-app01:8081/content/groups/npm-all/
-
+RUN npm ci
 
 COPY . .
 
 ARG ENV
 RUN if [ "$ENV" = "QA" ] ; then npm run build:test ; else npm run build ; fi
 RUN rm -f .npmrc
+
 EXPOSE 3000
 CMD [ "npm", "start" ]
