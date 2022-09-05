@@ -15,4 +15,5 @@ pipeline {
         stage("test"){
             echo "test"
         }
+    }
 }
