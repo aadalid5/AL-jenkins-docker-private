@@ -24,8 +24,10 @@ pipeline {
 
         stage("Install Dependencies") {
             steps {
-                env.NODEJS_HOME = "${tool mynode}"
-                env.PATH="${env.NODEJS_HOME}:${env.PATH}"
+                script {
+                    env.NODEJS_HOME = "${tool mynode}"
+                    env.PATH="${env.NODEJS_HOME}:${env.PATH}"
+                }
                 sh "node -v"
                 sh "npm ci"
             }
