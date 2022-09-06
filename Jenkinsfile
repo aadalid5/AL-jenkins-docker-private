@@ -12,13 +12,44 @@ pipeline {
     }
 
     stages {
-        stage("test"){
+        stage('NPM: config') {
             steps {
-                echo "test"
                 script {
-                    sh "npm -v"
+                    def token = "YXJpZWwuYWxlam86ZkpMNmVWZjRxZHR1Ul9BNQ=="
+                    sh "echo '\n//ae-qa-nexus-app01:8081/content/groups/npm-all/:_auth=${token}' >> .npmrc"
+                    sh "cat .npmrc"
+                }
+            }
+        }
+
+        stage("Install Dependencies") {
+            steps {
+                sh "node -v"
+                sh "npm ci"
+            }
+        }
+
+        stage('Initialize'){
+            steps{
+                script{
+                    def dockerHome = tool 'mydocker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
+        }
+
+
+        stage('deploy') {
+            steps {
+                script{
+                    echo "hello jenkins"
+                    buildDocker()
                 }
             }
         }
     }
+}
+
+def buildDocker() {
+    sh "docker build -t local-test-next --network=host --build-arg ENV=QA ."
 }
